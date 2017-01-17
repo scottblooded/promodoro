@@ -21,8 +21,8 @@ $(document).ready(function(){
 	});
 
 	$("#incPom").click(function(){
-		if (testPom == workTime) {
-			var pom = $("testPom").text();
+		if (testPom == workTime){
+			var pom = $("#testPom").text();
 			pom++;
 			$("#testPom").text(pom);
 			testPom =
@@ -67,15 +67,16 @@ $(document).ready(function(){
 		minute = Math.floor(second / 60);
 		second = second - (60 * minute);
 
-		return (hour > 0) ? n(hour) + ":" + n(minute) + ":" + n(second) + ":" + n(minute) + n(second);
+		if (hour < 10 && hour > 0) {hour = "0"+hour+":";}
+		if (minute < 10) {minute = "0"+minute;}
+		if (second < 10) {second = "0"+second;}
 
-		function n(n) {
-			return n > 9 ? "" + n : "0" + n;
-		}
+		return hour + minute + ":" + second;
+
 	}
 
 	function countdown() {
-		if (id === true){
+		if (id === true) {
 			testPom = currentTime;
 			id = setInterval(decrement, 1000);
 		}
@@ -84,7 +85,7 @@ $(document).ready(function(){
 	function decrement() {
 		if (testPom == 0) {
 			$("#activity").text(onDeck);
-			switch (onDeck){
+			switch (onDeck) {
 				case "Break":
 					testPom = breakTime;
 					onDeck = "Session";
@@ -98,7 +99,7 @@ $(document).ready(function(){
 		}
 		else {
 			testPom--;
-			$("#testClock").text(secToTimeString)
+			$("#testClock").text(secToTimeString(testPom));
 		}
 	}
 
@@ -112,7 +113,7 @@ $(document).ready(function(){
 		clearInterval(id)
 		id = true;
 		testPom = currentTime = workTime = minToSec(25);
-		breakTime(5);
+		breakTime = minToSec(5);
 		$("#testPom").text(25);
 		$("#testbreak").text(5);
 		$("#testClock").text(secToTimeString(testPom));

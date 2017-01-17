@@ -3,18 +3,72 @@
 
 <head>
 	<title>Promodoro Clock</title>
-
+	
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel='stylesheet' href="css/style.css">
 
 </head>
 
 <body>
 	<div class="container">
-		<div id="pomodoro">
+		<div id="pomodoro" class="container">
+			<h1 class = "text-center"><span id = "title">Promodoro Clock</span></h1>
+			<div id="setTimes" class="container">
+				<div class="row">
+					<div class="col-xs-6 text-center">
+						<h3>Session</h3>
+					</div>
+					<div class="col-xs-6 text-center">
+						<h3>Break</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div id="decPom" class="col-xs-2 btn block-center minus">
+						<i class="fa fa-chevron-down fa-1x"></i>
+					</div>
+					<div id="session" class="col-xs-2 block-center text-center time">
+						<span id="testPom">25</span>
+					</div>
+					<div id="incPom" class="col-xs-2 btn block-center plus">
+						<i class="fa fa-chevron-up fa-1x"></i>
+					</div>
+					<div id="decBreak" class="col-xs-2 btn block-center minus">
+						<i class="fa fa-chevron-down fa-1x"></i>
+					</div>
+					<div id="break" class="col-xs-2 block-center text-center time">
+						<span id="testBreak">5</span>
+					</div>
+					<div id="incBreak" class="col-xs-2 btn block-center plus">
+						<i class="fa fa-chevron-up fa-1x"></i>
+					</div>
+				</div>
+			</div>
+			<div id="playPomodoro" class="container">
+				<div class="row">
+					<div class="col-xs-6">
+						<div id="start" class="btn btn-block"><i class="fa fa-play fa-3x"></i></div>
+					</div>
+					<div class="col-xs-6">
+						<div id="reset" class="btn btn-block"><i class="fa fa-refresh fa-3x"></i></div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h2 id="activity">Session</h2>		
+					</div>
+				</div>
+				<div class="row">
+					<div id="testClock" class="col-xs-12 text-center"></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+					<div id="pause" class="btn btn-block"><i class="fa fa-pause fa-3x"></i></div>
+					</div>
+				</div>
 
-
+			</div>
 		</div>
-
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
